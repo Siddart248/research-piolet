@@ -1,0 +1,21 @@
+# Core LLM SDK
+google-genai>=1.0.0
+
+# Agent Orchestration & State Graph
+langgraph>=0.2.0
+
+# Schema Validation & Structured Outputs
+pydantic>=2.0.0
+
+# API Server
+fastapi>=0.110.0
+uvicorn>=0.28.0
+
+# Vector Math & Embeddings Computation
+numpy>=1.26.0
+
+# Environment Configuration
+python-dotenv>=1.0.0
+
+# Testing & Evaluation
+pytest>=8.0.0

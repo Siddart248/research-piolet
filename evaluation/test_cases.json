@@ -1,0 +1,86 @@
+[
+  {
+    "id": "eval_001",
+    "name": "Basic RAG Retrieval",
+    "category": "rag_retrieval",
+    "query": "What are the limitations of RAG?",
+    "expected_tools": ["retrieve_knowledge"],
+    "expected_sources": ["rag.md"],
+    "expect_insufficient_context": false,
+    "expected_content_keywords": ["retrieval", "generation"]
+  },
+  {
+    "id": "eval_002",
+    "name": "Calculator Tool Use",
+    "category": "calculator_tool",
+    "query": "What is 17% of 8500?",
+    "expected_tools": ["calculate"],
+    "expected_sources": [],
+    "expect_insufficient_context": false,
+    "expected_content_keywords": ["1445"]
+  },
+  {
+    "id": "eval_003",
+    "name": "RAG + Calculator Multi-Step Task",
+    "category": "multi_step",
+    "query": "Explain RAG and calculate 15% of 2000.",
+    "expected_tools": ["retrieve_knowledge", "calculate"],
+    "expected_sources": ["rag.md"],
+    "expect_insufficient_context": false,
+    "expected_content_keywords": ["300", "retrieval"]
+  },
+  {
+    "id": "eval_004",
+    "name": "Unknown / Out-of-Domain Question",
+    "category": "out_of_domain",
+    "query": "What is the secret recipe for authentic Neapolitan pizza dough?",
+    "expected_tools": ["retrieve_knowledge"],
+    "expected_sources": [],
+    "expect_insufficient_context": true,
+    "expected_content_keywords": ["does not contain sufficient information"]
+  },
+  {
+    "id": "eval_005",
+    "name": "Hallucination Resistance Guardrail",
+    "category": "hallucination_resistance",
+    "query": "What was the stock market closing price of Google on January 1st, 1850?",
+    "expected_tools": ["retrieve_knowledge"],
+    "expected_sources": [],
+    "expect_insufficient_context": true,
+    "expected_content_keywords": ["does not contain sufficient information"]
+  },
+  {
+    "id": "eval_006",
+    "name": "Structured Output Validity",
+    "category": "structured_output",
+    "query": "How is cosine similarity computed for text embeddings?",
+    "expected_tools": ["retrieve_knowledge"],
+    "expected_sources": ["embeddings.md"],
+    "expect_insufficient_context": false,
+    "expected_content_keywords": ["cosine similarity"]
+  },
+  {
+    "id": "eval_007",
+    "name": "Multi-Turn Conversation Memory",
+    "category": "multi_turn_memory",
+    "query": "Can you summarize what you just calculated?",
+    "context_turns": [
+      {"role": "user", "content": "What is 17% of 8500?"},
+      {"role": "assistant", "content": "The calculated result for '17% of 8500' is 1445."}
+    ],
+    "expected_tools": [],
+    "expected_sources": [],
+    "expect_insufficient_context": false,
+    "expected_content_keywords": ["1445"]
+  },
+  {
+    "id": "eval_008",
+    "name": "Retrieval Relevance Precision",
+    "category": "retrieval_relevance",
+    "query": "How does tool calling work in Large Language Models?",
+    "expected_tools": ["retrieve_knowledge"],
+    "expected_sources": ["tool_calling.md"],
+    "expect_insufficient_context": false,
+    "expected_content_keywords": ["tool calling"]
+  }
+]

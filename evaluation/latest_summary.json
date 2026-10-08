@@ -1,0 +1,198 @@
+{
+  "total_test_cases": 8,
+  "passed_cases": 8,
+  "failed_cases": 0,
+  "metrics": {
+    "overall_pass_rate": 1.0,
+    "structured_output_validity": 1.0,
+    "tool_usage_accuracy": 1.0,
+    "retrieval_success_rate": 1.0,
+    "insufficient_context_accuracy": 1.0
+  },
+  "failure_taxonomy_breakdown": {
+    "retrieval": 0,
+    "tool_selection": 0,
+    "prompt/context": 0,
+    "llm_output": 0,
+    "structured_validation": 0,
+    "application_logic": 0
+  },
+  "detailed_results": [
+    {
+      "id": "eval_001",
+      "name": "Basic RAG Retrieval",
+      "category": "rag_retrieval",
+      "passed": true,
+      "structured_output_valid": true,
+      "tool_usage_correct": true,
+      "retrieval_success": true,
+      "insufficient_context_handled": true,
+      "failure_category": null,
+      "failure_reason": null,
+      "actual_response": {
+        "answer_snippet": "Retrieval-Augmented Generation (RAG) is an architectural pattern that enhances Large Language Models by dynamically retrieving relevant facts from an external k...",
+        "sources": [
+          "llm_evaluation.md",
+          "rag.md"
+        ],
+        "tool_calls": [
+          "retrieve_knowledge"
+        ],
+        "confidence": 0.95,
+        "insufficient_context": false
+      }
+    },
+    {
+      "id": "eval_002",
+      "name": "Calculator Tool Use",
+      "category": "calculator_tool",
+      "passed": true,
+      "structured_output_valid": true,
+      "tool_usage_correct": true,
+      "retrieval_success": true,
+      "insufficient_context_handled": true,
+      "failure_category": null,
+      "failure_reason": null,
+      "actual_response": {
+        "answer_snippet": "The calculated result for '17% of 8500' is 1445....",
+        "sources": [],
+        "tool_calls": [
+          "calculate"
+        ],
+        "confidence": 1.0,
+        "insufficient_context": false
+      }
+    },
+    {
+      "id": "eval_003",
+      "name": "RAG + Calculator Multi-Step Task",
+      "category": "multi_step",
+      "passed": true,
+      "structured_output_valid": true,
+      "tool_usage_correct": true,
+      "retrieval_success": true,
+      "insufficient_context_handled": true,
+      "failure_category": null,
+      "failure_reason": null,
+      "actual_response": {
+        "answer_snippet": "Calculation result: 15% of 2000 = 300.\n\nRetrieval-Augmented Generation (RAG) is an architectural pattern that enhances Large Language Models by dynamically retr...",
+        "sources": [
+          "rag.md"
+        ],
+        "tool_calls": [
+          "retrieve_knowledge",
+          "calculate"
+        ],
+        "confidence": 0.95,
+        "insufficient_context": false
+      }
+    },
+    {
+      "id": "eval_004",
+      "name": "Unknown / Out-of-Domain Question",
+      "category": "out_of_domain",
+      "passed": true,
+      "structured_output_valid": true,
+      "tool_usage_correct": true,
+      "retrieval_success": true,
+      "insufficient_context_handled": true,
+      "failure_category": null,
+      "failure_reason": null,
+      "actual_response": {
+        "answer_snippet": "The local knowledge base does not contain sufficient information to answer this question accurately. To prevent hallucinations, ResearchPilot only provides answ...",
+        "sources": [],
+        "tool_calls": [
+          "retrieve_knowledge"
+        ],
+        "confidence": 0.0,
+        "insufficient_context": true
+      }
+    },
+    {
+      "id": "eval_005",
+      "name": "Hallucination Resistance Guardrail",
+      "category": "hallucination_resistance",
+      "passed": true,
+      "structured_output_valid": true,
+      "tool_usage_correct": true,
+      "retrieval_success": true,
+      "insufficient_context_handled": true,
+      "failure_category": null,
+      "failure_reason": null,
+      "actual_response": {
+        "answer_snippet": "The local knowledge base does not contain sufficient information to answer this question accurately. To prevent hallucinations, ResearchPilot only provides answ...",
+        "sources": [],
+        "tool_calls": [
+          "retrieve_knowledge"
+        ],
+        "confidence": 0.0,
+        "insufficient_context": true
+      }
+    },
+    {
+      "id": "eval_006",
+      "name": "Structured Output Validity",
+      "category": "structured_output",
+      "passed": true,
+      "structured_output_valid": true,
+      "tool_usage_correct": true,
+      "retrieval_success": true,
+      "insufficient_context_handled": true,
+      "failure_category": null,
+      "failure_reason": null,
+      "actual_response": {
+        "answer_snippet": "## How Embeddings Capture Semantics\n\nTrained transformer encoders project natural language into vectors such that text segments with related meanings occupy pro...",
+        "sources": [
+          "embeddings.md"
+        ],
+        "tool_calls": [
+          "retrieve_knowledge"
+        ],
+        "confidence": 0.95,
+        "insufficient_context": false
+      }
+    },
+    {
+      "id": "eval_007",
+      "name": "Multi-Turn Conversation Memory",
+      "category": "multi_turn_memory",
+      "passed": true,
+      "structured_output_valid": true,
+      "tool_usage_correct": true,
+      "retrieval_success": true,
+      "insufficient_context_handled": true,
+      "failure_category": null,
+      "failure_reason": null,
+      "actual_response": {
+        "answer_snippet": "In our previous turn, we discussed: The calculated result for '17% of 8500' is 1445....",
+        "sources": [],
+        "tool_calls": [],
+        "confidence": 1.0,
+        "insufficient_context": false
+      }
+    },
+    {
+      "id": "eval_008",
+      "name": "Retrieval Relevance Precision",
+      "category": "retrieval_relevance",
+      "passed": true,
+      "structured_output_valid": true,
+      "tool_usage_correct": true,
+      "retrieval_success": true,
+      "insufficient_context_handled": true,
+      "failure_category": null,
+      "failure_reason": null,
+      "actual_response": {
+        "answer_snippet": "Tool calling (or function calling) enables Large Language Models to interface with deterministic software systems, external APIs, databases, and computational u...",
+        "sources": [
+          "tool_calling.md"
+        ],
+        "tool_calls": [
+          "retrieve_knowledge"
+        ],
+        "confidence": 0.95,
+        "insufficient_context": false
+      }
+    }
+  ]
+}
